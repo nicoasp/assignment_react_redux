@@ -1,15 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import 'bootstrap/dist/css/bootstrap.css'
+import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
 // Import the createStore method from Redux
-import { createStore } from "redux";
+import {createStore} from "redux";
 
-import { groceryApp } from "./reducers";
+import {groceryApp} from "./reducers";
 
-import { addItem, purchaseItem, setPurchasedFilter, setCategoryFilter, setSortBy } from "./actions";
+import {
+  addItem,
+  purchaseItem,
+  setPurchasedFilter,
+  setCategoryFilter,
+  setSortBy
+} from "./actions";
 
 let store = createStore(groceryApp);
 
@@ -40,15 +46,17 @@ store.dispatch(
 
 store.dispatch(purchaseItem(1));
 
-store.dispatch(setPurchasedFilter('SHOW_PURCHASED'));
+store.dispatch(setPurchasedFilter("SHOW_PURCHASED"));
 
-store.dispatch(setCategoryFilter('SHOW_SWEETS'));
+store.dispatch(setCategoryFilter("SHOW_SWEETS"));
 
-store.dispatch(setSortBy('DESCRIPTION'));
-
+store.dispatch(setSortBy("DESCRIPTION"));
 
 unsubscribe();
 ////////////////////////////////
 //React Dom
 ///////////////////////////////
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}> <App /> </Provider>,
+  document.getElementById("root")
+);
