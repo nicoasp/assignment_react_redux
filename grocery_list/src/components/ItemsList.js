@@ -16,7 +16,7 @@ const ItemList = ({items, purchaseItem}) => {
   return (
     <div className="ItemList container">
       <h1>Our Items</h1>
-      {/* <Filters /> */}
+      <Filters />
       <div className="card-deck">
         {items.length > 0 ? itemList : noItems}
       </div>
