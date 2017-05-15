@@ -1,8 +1,6 @@
 import {connect} from "react-redux";
 import AccountsList from "../components/AccountsList";
-
-
-
+import {select} from "../actions";
 
 const mapStateToProps = state => {
   // Pass in all puppies and the value of the current filter
@@ -12,15 +10,16 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     purchaseItem: id => {
-//       dispatch(purchaseItem(id));
-//     }
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    onClick: e => {
+      e.preventDefault();
+      dispatch(select(e.target.innerHTML));
+    }
+  };
+};
 
-const AccountsListContainer = connect(mapStateToProps, null)(
+const AccountsListContainer = connect(mapStateToProps, mapDispatchToProps)(
   AccountsList
 );
 

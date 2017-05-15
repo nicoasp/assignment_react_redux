@@ -117,11 +117,12 @@ export function bankTransactions(state = newState, action) {
         )
       };
     case SELECT:
+      console.log("in select");
       return {
         accounts: state.accounts,
         transactions: state.transactions,
         selectedUser: state.accounts.find(account => {
-          return account.id === action.data;
+          return account.id == action.data;
         }),
         filteredTransactions: state.filteredTransactions
       };
@@ -182,6 +183,7 @@ function updateSelectedUser(selectedUser, action) {
           ...selectedUser
         };
       }
+
   }
 }
 
