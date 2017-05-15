@@ -37,7 +37,7 @@ function purchasedFilter(state = "SHOW_ALL", action) {
   }
 }
 
-function categoryFilter(state = "SHOW_ALL", action) {
+function categoryFilter(state = "All", action) {
   switch (action.type) {
     case SET_CATEGORY_FILTER:
       return action.data;

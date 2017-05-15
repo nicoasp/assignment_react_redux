@@ -3,6 +3,8 @@ import JumbotronFluid from "./elements/JumbotronFluid";
 import ItemsListContainer from "../containers/ItemsListContainer";
 import AddItemContainer from "../containers/AddItemContainer";
 
+
+
 class App extends Component {
   render() {
     return (

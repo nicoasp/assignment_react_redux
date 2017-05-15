@@ -16,7 +16,7 @@ const itemsFromSeed = [
     name: "cheese",
     description: "beautiful parmesan",
     amount: 10,
-    category: "dairey",
+    category: "Dairy",
     purchased: false
   },
   {
@@ -24,7 +24,7 @@ const itemsFromSeed = [
     name: "chocolate",
     description: "beautiful but not parmesan",
     amount: 3,
-    category: "sweets",
+    category: "Sweets",
     purchased: false
   }
 ]

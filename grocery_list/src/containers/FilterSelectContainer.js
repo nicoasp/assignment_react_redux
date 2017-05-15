@@ -1,19 +1,18 @@
 import {connect} from "react-redux";
 import FilterSelect from "../components/FilterSelect";
-import {setCategoriesFilter} from "../actions";
+import {setCategoryFilter} from "../actions";
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onChange: e => {
       // Don't reload the page
       e.preventDefault();
-      console.log(e.target.value);
       // Pass in the filter for that link to set it in the store
-      dispatch(setCategoriesFilter(e.target.value));
+      dispatch(setCategoryFilter(e.target.value));
     }
   };
 };
 
-const FilterSelectContainer = connect(mapDispatchToProps)(FilterSelect);
+const FilterSelectContainer = connect(null, mapDispatchToProps)(FilterSelect);
 
 export default FilterSelectContainer;
