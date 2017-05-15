@@ -1,14 +1,17 @@
 import React from "react";
 import Table from "./elements/Table";
-import DepositForm from "./DepositForm";
+import DepositFormContainer from "../containers/DepositFormContainer";
+import WithdrawFormContainer from "../containers/WithdrawFormContainer";
+import TransferFormContainer from "../containers/TransferFormContainer";
 
 const AccountView = ({account}) => {
-  console.log("click", account);
   return (
     <div className="well">
       <h3>Selected Account</h3>
       <Table accounts={[account]} />
-      <DepositForm />
+      <DepositFormContainer account={account} />
+      <WithdrawFormContainer account={account} />
+      <TransferFormContainer account={account} />
       <br />
     </div>
   );

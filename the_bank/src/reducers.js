@@ -85,13 +85,13 @@ export function bankTransactions(state = newState, action) {
     case TRANSFER:
       return {
         accounts: state.accounts.map(account => {
-          if (account.id === action.data.from) {
+          if (account.id === action.data.fromAccount) {
             return {
               id: account.id,
               amount: account.amount - action.data.amount
             };
           }
-          if (account.id === action.data.to) {
+          if (account.id === action.data.toAccount) {
             return {
               id: account.id,
               amount: account.amount + action.data.amount
@@ -106,8 +106,8 @@ export function bankTransactions(state = newState, action) {
             date: Date.now(),
             amount: action.data.amount,
             type: "transfer",
-            from: action.data.from,
-            to: action.data.to
+            from: action.data.fromAccount,
+            to: action.data.toAccount
           }
         ],
         selectedUser: updateSelectedUser(state.selectedUser, action),
@@ -168,12 +168,12 @@ function updateSelectedUser(selectedUser, action) {
           : selectedUser.amount
       };
     case TRANSFER:
-      if (selectedUser.id === action.data.to) {
+      if (selectedUser.id === action.data.toAccount) {
         return {
           ...selectedUser,
           amount: selectedUser.amount + action.data.amount
         };
-      } else if (selectedUser.id === action.data.from) {
+      } else if (selectedUser.id === action.data.fromAccount) {
         return {
           ...selectedUser,
           amount: selectedUser.amount - action.data.amount
