@@ -2,3 +2,6 @@
 # yarn lockfile v1
 
 
+form-serialize@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/form-serialize/-/form-serialize-0.7.1.tgz#48f74e37d041de4f7d140dd2c54b37fff8d2e843"
