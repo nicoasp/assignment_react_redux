@@ -4,7 +4,7 @@ export const SET_PURCHASED_FILTER = "SET_PURCHASED_FILTER";
 export const SET_CATEGORY_FILTER = "SET_CATEGORY_FILTER";
 export const SET_SORT_BY = "SET_SORT_BY";
 
-let itemId = 1;
+let itemId = 3;
 export function addItem(data) {
   return {
     type: ADD_ITEM,

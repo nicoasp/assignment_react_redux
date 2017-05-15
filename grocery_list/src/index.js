@@ -3,60 +3,41 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
+import {Provider} from 'react-redux'
 
 // Import the createStore method from Redux
 import {createStore} from "redux";
 
 import {groceryApp} from "./reducers";
 
-import {
-  addItem,
-  purchaseItem,
-  setPurchasedFilter,
-  setCategoryFilter,
-  setSortBy
-} from "./actions";
-
-let store = createStore(groceryApp);
-
-let unsubscribe = store.subscribe(() => {
-  console.log("new state: ", store.getState());
-});
-
-// Before we start, take a look at the state
-console.log("initial state", store.getState());
-
-store.dispatch(
-  addItem({
+const itemsFromSeed = [
+  {
+    id: 1,
     name: "cheese",
     description: "beautiful parmesan",
     amount: 10,
-    category: "dairey"
-  })
-);
-
-store.dispatch(
-  addItem({
+    category: "dairey",
+    purchased: false
+  },
+  {
+    id: 2,
     name: "chocolate",
     description: "beautiful but not parmesan",
     amount: 3,
-    category: "sweets"
-  })
-);
+    category: "sweets",
+    purchased: false
+  }
+]
 
-store.dispatch(purchaseItem(1));
 
-store.dispatch(setPurchasedFilter("SHOW_PURCHASED"));
+let store = createStore(groceryApp, {
+  items: itemsFromSeed,
+})
 
-store.dispatch(setCategoryFilter("SHOW_SWEETS"));
 
-store.dispatch(setSortBy("DESCRIPTION"));
-
-unsubscribe();
-////////////////////////////////
-//React Dom
-///////////////////////////////
 ReactDOM.render(
-  <Provider store={store}> <App /> </Provider>,
+  <Provider store={store}> 
+    <App /> 
+  </Provider>,
   document.getElementById("root")
 );

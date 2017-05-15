@@ -23,7 +23,7 @@ const ItemCard = ({item, onPurchaseClick}) => {
 };
 
 ItemCard.propTypes = {
-  Item: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
   onPurchaseClick: PropTypes.func.isRequired
 };
 

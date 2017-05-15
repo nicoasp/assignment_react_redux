@@ -2,16 +2,13 @@ import React, {PropTypes} from "react";
 import ItemCard from "./ItemCard";
 // import Filters from './Filters'
 
-const ItemList = ({items}) => {
+const ItemList = ({items, purchaseItem}) => {
   // Generate the puppy card for each puppy
-  const puppyList = items.map(item => (
+  const itemList = items.map(item => (
     <ItemCard
-      name={item.name}
-      description={item.description}
-      amount={item.amount}
-      category={item.category}
-      purchased={item.purchased}
-      onPurchaseClick={() => addItem(item.id)} //made avail by our connect to redux?
+      item={item}
+      key={item.id}
+      onPurchaseClick={() => purchaseItem(item.id)}
     />
   ));
   const noItems = <p className="text-muted">Oops no items...</p>;
@@ -21,7 +18,7 @@ const ItemList = ({items}) => {
       <h1>Our Items</h1>
       {/* <Filters /> */}
       <div className="card-deck">
-        {items.length > 0 ? itemList : noitems}
+        {items.length > 0 ? itemList : noItems}
       </div>
     </div>
   );
@@ -29,7 +26,7 @@ const ItemList = ({items}) => {
 
 ItemList.propTypes = {
   items: PropTypes.array.isRequired,
-  addItem: PropTypes.func.isRequired
+  // addItem: PropTypes.func.isRequired
 };
 
 export default ItemList;
