@@ -1,9 +1,9 @@
 import React from "react";
 import TableRow from "./TableRow";
 
-const Table = ({headers, accounts}) => {
+const Table = ({accounts}) => {
   const tableRows = accounts.map(account => {
-    return <TableRow col1={account.id} col2={account.balance} />;
+    return <TableRow col1={account.id} col2={account.amount} />;
   });
   return (
     <table className="table table-striped">

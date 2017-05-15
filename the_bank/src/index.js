@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import {Provider} from "react-redux";
 
@@ -78,24 +78,8 @@ import {bankTransactions} from "./reducers";
 // );
 //
 // unsubscribe();
-let bankAccounts = [
-  {
-    id: 1,
-    amount: 1000
-  },
-  {
-    id: 2,
-    amount: 10000
-  },
-  {
-    id: 3,
-    amount: 10001
-  }
-];
 
-let store = createStore(bankTransactions, {
-  items: bankAccounts
-});
+let store = createStore(bankTransactions);
 
 ReactDOM.render(
   <Provider store={store}>
