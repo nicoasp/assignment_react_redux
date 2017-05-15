@@ -1,6 +1,12 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 
-import { ADD_ITEM, PURCHASE_ITEM, SET_PURCHASED_FILTER, SET_CATEGORY_FILTER, SET_SORT_BY } from "./actions";
+import {
+  ADD_ITEM,
+  PURCHASE_ITEM,
+  SET_PURCHASED_FILTER,
+  SET_CATEGORY_FILTER,
+  SET_SORT_BY
+} from "./actions";
 
 function items(state = [], action) {
   switch (action.type) {
@@ -8,21 +14,21 @@ function items(state = [], action) {
       return [...state, action.data];
 
     case PURCHASE_ITEM:
-    return state.map((item)=>{
-      if (item.id === action.data) {
-        return {
-          ...item,
-          purchased: true
+      return state.map(item => {
+        if (item.id === action.data) {
+          return {
+            ...item,
+            purchased: true
+          };
         }
-      }
-      return item;
-    })
+        return item;
+      });
     default:
       return state;
   }
 }
 
-function purchasedFilter(state = "SHOW ALL", action) {
+function purchasedFilter(state = "SHOW_ALL", action) {
   switch (action.type) {
     case SET_PURCHASED_FILTER:
       return action.data;
@@ -31,7 +37,7 @@ function purchasedFilter(state = "SHOW ALL", action) {
   }
 }
 
-function categoryFilter(state = "SHOW ALL", action) {
+function categoryFilter(state = "SHOW_ALL", action) {
   switch (action.type) {
     case SET_CATEGORY_FILTER:
       return action.data;

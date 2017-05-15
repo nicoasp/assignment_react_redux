@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import ItemCard from "./ItemCard";
-// import Filters from './Filters'
+import Filters from "./Filters";
 
 const ItemList = ({items, purchaseItem}) => {
   // Generate the puppy card for each puppy
@@ -25,7 +25,7 @@ const ItemList = ({items, purchaseItem}) => {
 };
 
 ItemList.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired
   // addItem: PropTypes.func.isRequired
 };
 
