@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 
-import { DEPOSIT, WITHDRAW, TRANSFER, SELECT, FILTER } from "./actions";
+import {DEPOSIT, WITHDRAW, TRANSFER, SELECT, FILTER} from "./actions";
 
 let accounts = [
   {
@@ -49,7 +49,10 @@ export function bankTransactions(state = newState, action) {
           }
         ],
         selectedUser: updateSelectedUser(state.selectedUser, action),
-        filteredTransactions: updateFilteredTrans(state.filteredTransactions, action)
+        filteredTransactions: updateFilteredTrans(
+          state.filteredTransactions,
+          action
+        )
       };
     case WITHDRAW:
       return {
@@ -74,7 +77,10 @@ export function bankTransactions(state = newState, action) {
           }
         ],
         selectedUser: updateSelectedUser(state.selectedUser, action),
-        filteredTransactions: updateFilteredTrans(state.filteredTransactions, action)
+        filteredTransactions: updateFilteredTrans(
+          state.filteredTransactions,
+          action
+        )
       };
     case TRANSFER:
       return {
@@ -105,7 +111,10 @@ export function bankTransactions(state = newState, action) {
           }
         ],
         selectedUser: updateSelectedUser(state.selectedUser, action),
-        filteredTransactions: updateFilteredTrans(state.filteredTransactions, action)
+        filteredTransactions: updateFilteredTrans(
+          state.filteredTransactions,
+          action
+        )
       };
     case SELECT:
       return {
@@ -126,10 +135,9 @@ export function bankTransactions(state = newState, action) {
           start: action.data.start,
           end: action.data.end,
           transactions: state.transactions.filter(transaction => {
-          return (
-            (!action.data.start || transaction.date > action.data.start) &&
-            (!action.data.end || transaction.date < action.data.end)
-          );
+            return (!action.data.start ||
+              transaction.date > action.data.start) &&
+              (!action.data.end || transaction.date < action.data.end);
           })
         }
       };
